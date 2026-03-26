@@ -244,3 +244,200 @@ a. One level of a small cache, hit latency = 1 ns, hit rate = 60%.
 b. One level of a large cache, hit latency = 20 ns, hit rate = 90%.
 
 c. Two levels, with the first level the same as a), and the second level the same as b). You will need to first figure out the hit rates for the two levels based on known information.
+
+> a. AMAT = 1ns + 40% * 100ns = 41ns.
+>
+> b. AMAT = 20ns + 10% * 100ns = 30ns.
+>
+> c. Hit rate = 1 - 10% * 40% = 96%.
+> 
+> AMAT = 1ns + 40% * (20ns + 10% * 100ns) = 13ns.
+
+---
+
+Consider a full system with a processor, a single cache, and an off-chip memory. We execute different programs, i.e., sequences of instructions, on this system. The processor follows the simple design we discussed in the lecture, i.e., sequentially executing each instruction before moving to the next one. All instructions except loads and stores (i.e., memory access instructions) need 1 unit time (i.e., 1 processor clock cycle). Memory access instructions, if hitting in the cache, also cost 1 unit time. The off-chip memory has a latency of 100 unit time.
+
+We are interested in the slowdown caused by the memory hierarchy, which is measured as the ratio of the execution time on the real system vs. the execution time on an unrealistic perfect memory hierarchy with 100% hit rate. Prove that, for any program, this slowdown depends linearly on the ratio of its cache misses and instruction count.
+
+The above ratio is usually called MPKI, i.e., misses per kilo instructions. Based on your proof, MPKI is usually a better metric than miss rate to analyze performance.
+
+> Assume there is $n$ instructions, and there is $m$ misses.
+> 
+> Real sys time: $n + 100m$ unit.
+>
+> Ideal sys time: $n$ unit.
+>
+> Ratio: $1 + 100 \frac{m}{n}$.
+>
+> Slowdown: $100 \frac{m}{n}$.
+>
+> Obviously slowdown is linearly depend on misses per instructions.
+
+---
+
+Now we would like to predict the cache behavior of C code for potential code optimization. Given the following code:
+
+```c
+int x[2][128];
+int sum = 0;
+for (int i = 0; i < 128; i++) {
+  sum += x[0][i] * x[1][i];
+}
+```
+
+Assume ``sizeof(int) == 4``, array ``x`` begins at memory address ``0x10000000`` and is in row-major order. The only memory accesses are to the entries of ``x``, and all other variables are in registers.
+
+Given the following cache configurations, estimate the miss rates. The cache is initially empty in each case.
+
+a. The cache is 512 bytes, direct-mapped, with 16-byte block size.
+
+> The array start at ``0x10000000`` which is a beginning of block.
+>
+> ``x[0]`` starts at ``0x10000000``, ``x[1]`` starts at ``0x10000200``. #Block = 32, so offset is the last 4 bit, and index is the following 5 bit. Thus ``x[0][0]`` and ``x[1][0]`` are in the same index.
+>
+> After miss to load ``x[0][0]`` and ``x[1][0]``, the block start with ``x[1][0]`` will take place of block start with ``x[0][0]``. So miss rate will be 100%.
+
+b. The cache capacity is doubled to 1024 bytes from a). Other parameters do not change.
+
+> This case index of ``x[0][0]`` and ``x[1][0]`` are ``0B000000`` and ``0B100000``, so won't kick each other. A block contains 4 int, then miss rate = 25%.
+
+c. The cache is 512 bytes, 2-way set associative using an LRU policy, and with 16-byte block size.
+
+> Even though ``x[0][0]`` and ``x[1][0]`` are in same index, but a set contain 2 set, and kick the old one will take no effect. So miss rate = 25%.
+
+d. In c), will a larger cache size help to reduce the miss rate? Why or why not?
+
+> Will not. In fact, this program don't need too many blocks or sets, only two blocks in the same set which store ``x[0][i]`` and ``x[1][i]`` fit the need.
+
+e. In c), will a larger block size help to reduce the miss rate? Why or why not?
+
+> Will. If block size is larger, can take in more integers in a row, thus miss rate will reduce.
+
+---
+
+Given a set-associativity cache, is an LRU replacement policy (i.e., choosing the least recently used block to evict in the set) always better than a random policy (i.e., randomly choosing one block in the set to evict)? If yes, try to prove your conclusion; if not, please provide a counter-example.
+
+> Not. Following is a example. Consider code:
+>
+> ```c
+> int a[3][128];
+> long long s = 0;
+> for (int i = 0; i < 128; i++) {
+>   s += (a[0][i] & a[1][i]) ^ a[2][i];
+> }
+> ```
+>
+> When the cache is 2-way set assoc., every kick will kick the about-to-used block, so miss rate = 100%. But randomly kick will have 50% possibility to keep the about-to-used block, then miss rate will be about 50%.
+
+## Problem 5: Processes and Scheduling
+
+Explain whether the output sequences are valid with the given piece of code.
+
+a.
+
+```c
+printf("L0\n");
+if (fork() == 0) {
+  printf("L1\n");
+  if (fork() == 0) {
+    printf("L2\n");
+  }
+}
+printf("Bye\n");
+```
+
+Candidate output sequences:
+
+```
+i.       ii.      iii.     iv.
+L0     | L0     | L0     | L0
+Bye    | Bye    | L1     | Bye
+L1     | L1     | L2     | L1
+Bye    | L2     | Bye    | L2
+Bye    | Bye    |        |
+L2     | Bye    |        |
+```
+
+> i. Since there are 3 ``Bye`` but only 2 ``L.`` before the last ``Bye``, it's invalid.
+>
+> ii. Valid. Possible ending order: Main-process, sub-sub-process, sub-process.
+>
+> iii. Valid. Possible ending order: Sub-sub-process, main and sub-process (terminated by external, before ``Bye``).
+>
+> iv. Valid. Possible ending order: Main-process (then terminate sub-process and sub-sub-process before ``Bye``).
+>
+> If we assume that the program will not termininated by external, then iii. and iv. is invalid, since there is only 1 ``Bye``.
+
+b.
+
+```c
+int child_status;
+pid_t c1, c2;
+
+printf("S\n");
+
+c1 = fork();
+if (c1 == 0) {
+  printf("C1\n");
+  exit(0);
+}
+
+c2 = fork();
+if (c2 == 0) {
+  printf("C2\n");
+  exit(0);
+}
+
+printf("P0\n");
+waitpid(c1, &child_status, 0);
+printf("P1\n");
+```
+
+Candidate output sequences:
+
+```
+i.      ii.     iii.    iv.
+S     | S     | S     | S
+P0    | C1    | P0    | C2
+C2    | P0    | P1    | P1
+C1    | P1    | C1    | P0
+P1    | C2    | C2    | C1
+```
+
+> i. Valid. Possible ending order: sub2, sub1, main.
+>
+> ii. Valid. Possible ending order: sub1, sub2, main.
+>
+> iii. Invalid. ``C1`` can't appear after ``P1``.
+>
+> iv. Invalid. ``P1`` can't appeat before ``P0``.
+
+---
+
+Assume we have four jobs, $P_i$, $i = 1, 2, 3, 4$, with the execution time of 53, 8, 68,
+24, respectively. We compare the three scheduling policies, FCFS, RR (Round Robin), and SJF.
+
+a. Fill in the table below to calculate the wait time of each job, as well as the average wait time, under different policies. The "worst FCFS" assumes the arrival order of the four jobs that results in the worst-case average wait time. The time quantum of RR is given by the value of $q$. All RR policies assume the arrival order of $P_1$ to $P_4$. Assume zero context switch overhead.
+
+> Policy | $P_1$ | $P_2$ | $P_3$ | $P_4$ | Average
+> :---: | :---: | :---: | :---: | :---: | :---:
+> FCFS | 0 | 53 | 61 | 129 | 60.75
+> Worst FCFS | 68 | 145 | 0 | 121 | 83.5
+> SJF | 32 | 0 | 85 | 8 | 31.25
+> RR (q=5) | 82 | 20 | 85 | 58 | 61.25
+> RR (q=8) | 80 | 8 | 85 | 56 | 57.25
+> RR (q=10) | 82 | 10 | 85 | 68 | 61.25
+> RR (q=20) | 72 | 20 | 85 | 88 | 66.25
+>
+> Best q: 8.
+
+b. Now assume a context switch overhead of 2 unit time. This overhead is only paid when the next job to run is different from the current running job. Also, the first running job starts at time 0 without a context switch overhead at the very beginning. Re-fill the table below for the RR policies. Does the best time quantum choice change?
+
+> Policy | $P_1$ | $P_2$ | $P_3$ | $P_4$ | Average
+> :---: | :---: | :---: | :---: | :---: | :---:
+> RR (q=5) | 136 | 30 | 141 | 90 | 99.25
+> RR (q=8) | 112 | 10 | 119 | 74 | 78.75
+> RR (q=10) | 110 | 12 | 115 | 86 | 80.75
+> RR (q=20) | 86 | 22 | 101 | 100 | 77.25
+>
+> Best q: 20. Changed.
