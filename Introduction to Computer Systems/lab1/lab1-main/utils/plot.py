@@ -14,7 +14,7 @@ data = [
 import numpy as np
 num_tasks = 3
 
-for i in range(num_tasks):
+for i in range(2, num_tasks):
     with open('./tasks{}_run.log'.format(i+1), 'r') as f:
         blocks = []
         current_block = []
@@ -54,7 +54,7 @@ for i in range(num_tasks):
         data = speedup_array
 
         group_names = {1:["mnk", "mkn", "kmn", "nmk", "nkm", "knm"],
-                       2:['mnk','t_mnk', 'mnkkmn_b32', 'mnk_lu2'],
+                       2:['mnk','t_mnk', 'mnkkmn_b32', 'mnk_lu2','handmade_task2'],
                        3:['mnk','simd', 'o3', 'simd=o3']}
         
         with plot_open("lab_{}".format(i+1)) as fig:
