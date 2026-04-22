@@ -14,7 +14,7 @@ $\frac{\partial f}{\partial x_i} = -2x_i$, 故梯度为 $-2v$.
 
 ---
 
-Prob 3. 求 $F:R^m \rarr M_{m \times m}$, $F(v)=(I-vv^t)^{-1}$ 的微分.
+Prob 3. 求 $F:R^m \to M_{m \times m}$, $F(v)=(I-vv^t)^{-1}$ 的微分.
 
 对于任意可逆矩阵映射 $H(x)$, 有 $H(x)H^{-1}(x)=I$. 两边对 $x_i$ 微分, 有 $H_{x_i}(x)H^{-1}(x)+H(x)H^{-1}_{x_i}(x)=0$, 即 $H^{-1}_{x_i}(x)=-H^{-1}(x)H_{x_i}(x)H^{-1}(x)$. 故 $\text{d}H^{-1}(x)=-H^{-1}(x) \text{d}H(x) H^{-1}(x)$.
 

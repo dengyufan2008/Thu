@@ -98,7 +98,7 @@ struct Node {
 };
 ```
 
-> d. ``lw x4, 8(x3)``
+> ``lw x4, 4(x3)``
 
 If then in a function, we declare an array using ``Node arr[10];``, how many bytes do we consume on the heap and the stack, respectively?
 

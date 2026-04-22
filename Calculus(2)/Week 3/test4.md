@@ -1,4 +1,4 @@
-Prob 1. 设 $f:R^2 \rarr R$, $f \in \mathscr C^2$, $\Delta f(u, v) = 0$. 若 $g(x, y) = f(\frac{x}{x^2+y^2}, \frac{y}{x^2+y^2})$, 证明 $\Delta g = 0$.
+Prob 1. 设 $f:R^2 \to R$, $f \in \mathscr C^2$, $\Delta f(u, v) = 0$. 若 $g(x, y) = f(\frac{x}{x^2+y^2}, \frac{y}{x^2+y^2})$, 证明 $\Delta g = 0$.
 
 用极坐标系有 $g(r, \theta) = f(\frac{\cos \theta}{r}, \frac{\sin \theta}{r})$. 有 $\Delta g = g_{rr} + \frac{1}{r^2}g_{\theta \theta} + \frac{1}{r} g_{r}$.
 

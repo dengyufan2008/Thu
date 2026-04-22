@@ -10,7 +10,7 @@ Prove all parts of the Lattice Isomorphism Theorem.
 
 Consider $\phi(A)=A/N$. For all $N \le A \le G$, since $N \unlhd G$, then $N \unlhd A$, thus $A/N$ is well defined. Consider $\phi^{-1}(A) = \bigcup_{x \in A} x$. Obviously $\phi^{-1}(\phi(A)) = \bigcup_{x \in A} xN = AN = A$, $\phi(\phi^{-1}(A/N)) = A/N$, so $\phi$ is bijection. Let $\overline A = \phi(A)$.
 
-We have $\overline A \le \overline B$ iff $xy^{-1} \in \overline A$ iff $xN(yN)^{-1} \in A/N$ iff $(xy^{-1})N \in A/N$ iff $xy^{-1} \in A$ iff $A \le B$, since $\overline A \le \overline B \rarr N \le A \rarr A \ne \varnothing$, $A \le B \rarr A \ne \varnothing \rarr \overline A \ne \varnothing$.
+We have $\overline A \le \overline B$ iff $xy^{-1} \in \overline A$ iff $xN(yN)^{-1} \in A/N$ iff $(xy^{-1})N \in A/N$ iff $xy^{-1} \in A$ iff $A \le B$, since $\overline A \le \overline B \to N \le A \to A \ne \varnothing$, $A \le B \to A \ne \varnothing \to \overline A \ne \varnothing$.
 
 If $A \le B$, $|\overline B:\overline A| = \frac{|\overline B|}{|\overline A|} = \frac{|B| / |N|}{|A| / |N|} = \frac{|B|}{|A|} = |B:A|$.
 
@@ -28,7 +28,7 @@ Let $C$ be a normal subgroup of the group $A$ and let $D$ be a normal subgroup o
 
 For all $(a, b) \in A \times B$, we have $(a, b)(C \times D)(a^{-1}, b^{-1}) = (aCa^{-1}) \times (bDb^{-1}) = C \times D$.
 
-Let $\phi:(A \times B)/(C \times D) \rarr (A/C) \times (B/D)$ that $\phi[(a, b)(C \times D)] = (aC, bD)$. $\phi^{-1}(aC, bD) = (a, b)(C \times D)$.
+Let $\phi:(A \times B)/(C \times D) \to (A/C) \times (B/D)$ that $\phi[(a, b)(C \times D)] = (aC, bD)$. $\phi^{-1}(aC, bD) = (a, b)(C \times D)$.
 
 Easy to show $\phi$ and $\phi^{-1}$ is well defined, and $\phi \phi^{-1} = I$, $\phi^{-1} \phi = I$, and $\phi[(a_1, b_1)(C \times D)] \phi[(a_2, b_2)(C \times D)] = \phi[(a_1a_2, b_1b_2)(C \times D)]$.
 
@@ -38,7 +38,7 @@ Let $M$ and $N$ be normal subgroups of $G$ such that $G = M N$. Prove that $G/(M
 
 ---
 
-Consider $\phi:MN \rarr (MN / M) \times (MN / N)$ that $\phi(x) \rarr (xM, xN)$. Then $\ker \phi = M \cap N$.
+Consider $\phi:MN \to (MN / M) \times (MN / N)$ that $\phi(x) \to (xM, xN)$. Then $\ker \phi = M \cap N$.
 
 To show $\phi$ is onto, for all $(mnM, m'n'N) = (n''m''M, m'n'N) = (n''M, m'N)$, we have $\phi(n''m') = (n''m'M, n''m'N) = (n''M, (m'n'''m'^{-1})m'N) = (n''M, m'N)$.
 
@@ -56,7 +56,7 @@ For $H \le G$, consider $H_i = G_i \cap H$, then $H_0=1$, $H_s = H$.
 
 To prove $H_i \unlhd H_{i+1}$, consider $x \in H_i$, $y \in H_{i+1}$. We have $yxy^{-1} \in G_i$ since $G_i \unlhd G_{i+1}$; and $yxy^{-1} \in H$ since $H$ is group. So $yxy^{-1} \in H_i$.
 
-To prove $H_{i+1} / H_i$ is Abelian, consider $\phi : H_{i+1} \rarr G_{i+1} / G_i$ that $\phi(x) = xG_i$. So $\ker \phi = H_{i+1} \cap G_i = H_i$. Thus $H_{i+1} / H_i = \phi(H_{i+1}) \le G_{i+1} / G_i$ is Abelian.
+To prove $H_{i+1} / H_i$ is Abelian, consider $\phi : H_{i+1} \to G_{i+1} / G_i$ that $\phi(x) = xG_i$. So $\ker \phi = H_{i+1} \cap G_i = H_i$. Thus $H_{i+1} / H_i = \phi(H_{i+1}) \le G_{i+1} / G_i$ is Abelian.
 
 For $N \unlhd G$, $\overline G = G / N$, consider $\overline{G_i} = G_iN / N$, then $\overline{G_0}=1$, $\overline{G_s}=\overline G$.
 
@@ -86,7 +86,7 @@ We prove every Abelian group $A$ can have a chain $1 = A_0 \unlhd \cdots \unlhd 
 
 For group $A$, we pick a prime $p \mid |A|$, so we can have $x \in A$ that $|x| = p$. Let $A_1 = \langle x \rangle$, then $A_1 \unlhd A$ since $A$ Abelian. And obviously $A / A_1$ is also Abelian. So we can do the process until $A=1$.
 
-iii -> iv: Induction $|G|$. If $G=1$, obvious. Otherwise we pick $1 \ne M \unlhd G$ that for all $N \unlhd G$, we have $N \le M \rarr N = 1 \lor N = M$. Since $G$ finite, we can simple pick $|M|$ smallest. We show $M$ is Abelian, then apply iv to $G/M$, we complete the proof.
+iii -> iv: Induction $|G|$. If $G=1$, obvious. Otherwise we pick $1 \ne M \unlhd G$ that for all $N \unlhd G$, we have $N \le M \to N = 1 \lor N = M$. Since $G$ finite, we can simple pick $|M|$ smallest. We show $M$ is Abelian, then apply iv to $G/M$, we complete the proof.
 
 Since $M$ is finite, then $M$ has a composition series. If $M=M_k$, we take $N=M_{k-1}$. Since composition factor of $M$ is compositon factor of $G$, then $|M:N| = p$.
 
@@ -118,7 +118,7 @@ ii. The only simple groups of odd order are those of prime order.
 
 i -> ii: For finite simple group $G$ that $2 \nmid |G|$, we have $G$ solvable, then the only chain is $1 \unlhd G$, so $G$ Abelian. Let $p \mid |G|$, we have $|x|=p$. Let $H = \langle x \rangle$, then $H \unlhd G$ since $G$ Abelian. Since $H \ne 1$, then $H=G$, so $|G|=p$.
 
-ii -> i: For finite group $G$ that $2 \nmid |G|$, we can keep take biggest $|H|$ that $H \unlhd G$, and do the same process to $H$. So we can have $1=G_0 \unlhd G_1 \unlhd \cdots \unlhd G_s = G$, and $H \unlhd G_{i+1} \rarr |H| \le |G_i|$.
+ii -> i: For finite group $G$ that $2 \nmid |G|$, we can keep take biggest $|H|$ that $H \unlhd G$, and do the same process to $H$. So we can have $1=G_0 \unlhd G_1 \unlhd \cdots \unlhd G_s = G$, and $H \unlhd G_{i+1} \to |H| \le |G_i|$.
 
 If $G_{i+1}/G_i$ is not simple, then we have $\overline H \lhd G_{i+1}/G_i$, $\overline H \ne 1$. So we have $G_i \lhd H \lhd G_{i+1}$, contradiction. So $G_{i+1}/G_i$ is simple.
 

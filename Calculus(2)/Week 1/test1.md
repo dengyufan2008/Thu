@@ -1,4 +1,4 @@
-Prob 1. 设 $K \subseteq R^k$ 有界闭, $f:R^m \times K \rarr R$ 连续, $g(x) = \min_{y \in K} f(x, y)$. 证明 $g:R^m \rarr R$ 连续.
+Prob 1. 设 $K \subseteq R^k$ 有界闭, $f:R^m \times K \to R$ 连续, $g(x) = \min_{y \in K} f(x, y)$. 证明 $g:R^m \to R$ 连续.
 
 Proof.
 

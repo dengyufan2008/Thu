@@ -1,3 +1,4 @@
+
 # Week2 Homework
 
 By Deng Yufan.
@@ -32,7 +33,7 @@ c. $\phi$ is a homomorphism, that is, $\phi(\sigma \circ \tau) = \phi(\sigma) \c
 
 a. Obviously there exists $\sigma^{-1}$ that $\sigma \circ \sigma^{-1} = \sigma^{-1} \circ \sigma = I$. Easy to see $(\theta \circ \sigma \circ \theta^{-1})^{-1} = \theta \circ \sigma^{-1} \circ \theta^{-1}$. So $\theta \circ \sigma \circ \theta^{-1}$ is a permutation.
 
-b. Easy to see $\phi^{-1} : S_\Omega \rarr S_\Delta$ that $\phi^{-1}(\tau) = \theta^{-1} \circ \tau \circ \theta$.
+b. Easy to see $\phi^{-1} : S_\Omega \to S_\Delta$ that $\phi^{-1}(\tau) = \theta^{-1} \circ \tau \circ \theta$.
 
 c. $\phi(\sigma \circ \tau) = \theta \circ \sigma \circ \tau \circ \theta^{-1} = \theta \circ \sigma \circ \theta^{-1} \circ \theta \circ \tau \circ \theta^{-1} = \phi(\sigma) \circ \phi(\tau)$.
 
@@ -42,7 +43,7 @@ Let $A$, $B$, and $C$ be groups and let $G = A \times B$ and $H = B \times C$. P
 
 ---
 
-Let $\phi : (A \times B) \times C \rarr A \times (B \times C)$ that $\phi((a, b), c) = (a, (b, c))$. Obviously $\phi^{-1}(a, (b, c)) = ((a, b), c)$.
+Let $\phi : (A \times B) \times C \to A \times (B \times C)$ that $\phi((a, b), c) = (a, (b, c))$. Obviously $\phi^{-1}(a, (b, c)) = ((a, b), c)$.
 
 We have $\phi((a_1, b_1), c_1) \diamond \phi((a_2, b_2), c_2) = (a_1, (b_1, c_1)) \diamond (a_2, (b_2, c_2)) = (a_1 \diamond a_2, (b_1 \diamond b_2, c_1 \diamond c_2)) = \phi(((a_1, b_1), c_1) * ((a_2, b_2), c_2))$.
 

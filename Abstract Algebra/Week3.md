@@ -12,7 +12,7 @@ We have $r$, $r^3$, $r^5$, $r^7$, $sr$, $sr^3$, $sr^5$, $sr^7$.
 
 ## P85 T1
 
-Let $\phi : G \rarr H$ be a homomorphism and let $E$ be a subgroup of $H$. Prove that $\phi^{-1}(E) \le G$. If $E \unlhd H$ prove that $\phi^{-1}(E) \unlhd G$. Deduce that $\ker \phi \unlhd G$.
+Let $\phi : G \to H$ be a homomorphism and let $E$ be a subgroup of $H$. Prove that $\phi^{-1}(E) \le G$. If $E \unlhd H$ prove that $\phi^{-1}(E) \unlhd G$. Deduce that $\ker \phi \unlhd G$.
 
 ---
 
@@ -68,7 +68,7 @@ b. Prove that $D_{2n} / \langle r^k \rangle \cong D_{2k}$.
 
 a. Obviously $\langle r^k \rangle \le D_{2n}$. We need to prove $g \langle r^k \rangle g^{-1} \subseteq \langle r^k \rangle$. For all $x \in \langle r^k \rangle$, if $g=r^m$, then obviously $gxg^{-1}=x \in \langle r^k \rangle$. If $g=r^ms$, then $gxg^{-1}=r^msr^{tk}r^ms=r^{-tk} \in \langle r^k \rangle$.
 
-b. Let $\phi : D_{2n}/\langle r^k \rangle \rarr D_{2k}$ st. $\phi(r_{2n}^m \langle r^k \rangle) = r_{2k}^m$, $\phi(r_{2n}^ms_{2n} \langle r^k \rangle) = r_{2k}^ms_{2k}$. We prove $\phi$ is iso.
+b. Let $\phi : D_{2n}/\langle r^k \rangle \to D_{2k}$ st. $\phi(r_{2n}^m \langle r^k \rangle) = r_{2k}^m$, $\phi(r_{2n}^ms_{2n} \langle r^k \rangle) = r_{2k}^ms_{2k}$. We prove $\phi$ is iso.
 
 We have $\phi^{-1}$ st. $\phi^{-1}(r_{2k}^m)=r_{2n}^m \langle r^k \rangle$, $\phi^{-1}(r_{2k}^ms_{2k})=r_{2n}^ms_{2n} \langle r^k \rangle$. Easy to see $\phi\phi^{-1}=I$, $\phi^{-1}\phi=I$.
 

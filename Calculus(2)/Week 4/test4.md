@@ -1,4 +1,4 @@
-Prob 1. 设 $n$ 阶方阵 $A$ 有单位特征向量 $v_0$, 相应的实特征值为 $\lambda_0$. 若 $\lambda_0$ 是 $\det(A-\lambda I)$ 的单根, 证明存在 $A$ 的邻域 $U$ 和 $\mathscr C^\infty$ 函数 $\lambda : U \rarr R$ 和 $\mathscr C^\infty$ 映射 $v : U \rarr R^n$, 使得 $\forall B \in U$, $\lambda(B)$ 和 $v(B)$ 是 $B$ 的实特征值和相应的单位特征向量, 且 $\lambda(A)=\lambda_0$, $v(A)=v_0$.
+Prob 1. 设 $n$ 阶方阵 $A$ 有单位特征向量 $v_0$, 相应的实特征值为 $\lambda_0$. 若 $\lambda_0$ 是 $\det(A-\lambda I)$ 的单根, 证明存在 $A$ 的邻域 $U$ 和 $\mathscr C^\infty$ 函数 $\lambda : U \to R$ 和 $\mathscr C^\infty$ 映射 $v : U \to R^n$, 使得 $\forall B \in U$, $\lambda(B)$ 和 $v(B)$ 是 $B$ 的实特征值和相应的单位特征向量, 且 $\lambda(A)=\lambda_0$, $v(A)=v_0$.
 
 设 $f(B, \lambda, v) = (Bv-\lambda v, \frac{1}{2}(\lVert v \rVert^2 - 1))$. 则 $f \in \mathscr C^\infty$, $f(A, \lambda_0, v_0)=0$.
 

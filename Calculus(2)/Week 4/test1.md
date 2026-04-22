@@ -2,7 +2,7 @@
 
 Prob 1. 证明 $f$ 没有上界, 有最小值.
 
-当 $(x, y) \rarr \infty$ 时, $f(x, y) = x^4+y^4+o(\lVert (x, y) \rVert_\infty^4)$, 故没有上界, 但当 $\lVert (x, y) \rVert_\infty$ 足够大时 $f(x, y) > \frac{1}{2}(x^4+y^4) > 0$, 又有 $f$ 连续, 故 $f$ 有最小值.
+当 $(x, y) \to \infty$ 时, $f(x, y) = x^4+y^4+o(\lVert (x, y) \rVert_\infty^4)$, 故没有上界, 但当 $\lVert (x, y) \rVert_\infty$ 足够大时 $f(x, y) > \frac{1}{2}(x^4+y^4) > 0$, 又有 $f$ 连续, 故 $f$ 有最小值.
 
 ---
 

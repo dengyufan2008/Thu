@@ -66,7 +66,7 @@ Prove that if $H$ has finite index $n$ then there is a normal subgroup $K$ of $G
 
 ---
 
-Let $K = \bigcap_{x \in G} xHx^{-1}$. Obviously $K \le H$ and $K \unlhd G$. We prove group action $(G/K, G/H)$ is faithful, which iff kernel is trivial, while $g_1K \cdot g_2H = (g_1g_2)H$. Thus $G/K \rarr S_{G/H}$ is one-to-one, so $|G : K| \le n!$.
+Let $K = \bigcap_{x \in G} xHx^{-1}$. Obviously $K \le H$ and $K \unlhd G$. We prove group action $(G/K, G/H)$ is faithful, which iff kernel is trivial, while $g_1K \cdot g_2H = (g_1g_2)H$. Thus $G/K \to S_{G/H}$ is one-to-one, so $|G : K| \le n!$.
 
 We first prove the action is well-defined. For $g_1K = g_1'K$, $g_2H = g_2'H$, we have $g_1^{-1}g_1' \in K$, $g_2^{-1}g_2' \in H$, so $(g_1g_2)^{-1}(g_1'g_2') = g_2^{-1}(g_1^{-1}g_1')g_2' = g_2^{-1}kg_2' = g_2^{-1}(g_2k'g_2^{-1})g_2' = k'(g_2^{-1}g_2') = k'h \in H$.
 
@@ -74,7 +74,7 @@ Then we prove kernel is trivial. If $(gx)H = xH$ for all $x \in G$, thus $x^{-1}
 
 ## P122 T11
 
-Let $G$ be a finite group and let $\pi : G \rarr S_G$ be the left regular representation. Prove that if $x$ is an element of $G$ of order $n$ and $|G|=mn$, then $\pi(x)$ is a product of $m$ $n$-cycles.
+Let $G$ be a finite group and let $\pi : G \to S_G$ be the left regular representation. Prove that if $x$ is an element of $G$ of order $n$ and $|G|=mn$, then $\pi(x)$ is a product of $m$ $n$-cycles.
 
 Deduce that $\pi(x)$ is an odd permutation if and only if $|x|$ is even and $\frac{|G|}{|x|}$ is odd. 
 
@@ -90,7 +90,7 @@ Let $G$ be a finite group of composite order $n$ with the property that $G$ has 
 
 Let $p$ be the smallest prime divide $n$. We have $H \le G$ that $|G : H| = p$ must satisfy $H \unlhd G$. This complete the proof.
 
-Let $A = G/H$, then $|A|=p$. Consider $\pi : G \rarr S_A$ that $\pi(g) = \sigma_g$ action on $A$. Obviously $\pi$ is a iso. and $\ker \pi = \bigcap_{x \in G} xAx^{-1}$, thus $G/\ker \pi \cong \pi(G) \le S_A$.
+Let $A = G/H$, then $|A|=p$. Consider $\pi : G \to S_A$ that $\pi(g) = \sigma_g$ action on $A$. Obviously $\pi$ is a homo. and $\ker \pi = \bigcap_{x \in G} xAx^{-1}$, thus $G/\ker \pi \cong \pi(G) \le S_A$.
 
 Let $|H:\ker \pi| = k$, then $pk = |G : \ker \pi| \mid |S_A| = p!$. So $k \mid (p-1)!$. Since $k \mid |H| \mid |G|$, so $k \mid \gcd((p-1)!, |G|) = 1$, thus $k=1$, $H = \ker \pi$. So $H = \ker \pi \unlhd G$.
 
@@ -144,7 +144,7 @@ We have $|D_{2n}| = |\{1\}| + \sum_{i=1}^k |D_{2n} : C_{D_{2n}}(r^i)| + |D_{2n} 
 
 ## P132 T36
 
-Let $\pi : G \rarr S_G$ be the left regular representation afforded by the action of $G$ on itself by left multiplication. For each $g \in G$ denote the permutation $\pi(g)$ by $\sigma_g$, so that $\sigma_g(x) = gx$ for all $x \in G$. Let $\lambda : G \rarr S_G$ be the permutation representation afforded by the corresponding right action of $G$ on itself, and for each $h \in G$ denote the permutation $\lambda(h)$ by $\tau_h$. Thus $\tau_h(x) = xh^{-1}$ for all $x \in G$ ($\lambda$ is called the right regular representation of $G$).
+Let $\pi : G \to S_G$ be the left regular representation afforded by the action of $G$ on itself by left multiplication. For each $g \in G$ denote the permutation $\pi(g)$ by $\sigma_g$, so that $\sigma_g(x) = gx$ for all $x \in G$. Let $\lambda : G \to S_G$ be the permutation representation afforded by the corresponding right action of $G$ on itself, and for each $h \in G$ denote the permutation $\lambda(h)$ by $\tau_h$. Thus $\tau_h(x) = xh^{-1}$ for all $x \in G$ ($\lambda$ is called the right regular representation of $G$).
 
 a. Prove that $\sigma_g$ and $\tau_h$ commute for all $g, h \in G$. (Thus the centralizer in $S_G$ of $\pi(G)$ contains the subgroup $\lambda(G)$, which is isomorphic to $G$).
 

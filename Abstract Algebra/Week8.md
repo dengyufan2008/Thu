@@ -58,7 +58,7 @@ Thus we have $xy + 2(yx) = -yx + 2(yx)$, which is $xy = yx$.
 
 ## P232 T25
 
-Let $I$ be the ring of integral Hamilton Quaternions and define $N : I \rarr Z$ by $N(a + bi + cj + dk) = a^2 + b^2 + c^2 + d^2$ (the map $N$ is called a norm).
+Let $I$ be the ring of integral Hamilton Quaternions and define $N : I \to Z$ by $N(a + bi + cj + dk) = a^2 + b^2 + c^2 + d^2$ (the map $N$ is called a norm).
 
 a. Prove that $N(\alpha) = \alpha \overline \alpha$ for all $\alpha \in I$, where if $\alpha = a + bi + cj + dk$ then $\overline \alpha = a - bi - cj - dk$.
 
@@ -78,7 +78,7 @@ c. If: Consider $\beta = \overline \alpha$, then $\alpha \beta = N(\alpha) = 1$.
 
 Only if: Consider $\alpha \beta = 1$, then $N(\alpha)N(\beta) = N(\alpha \beta) = N(1) = 1$. Since $N(x) \in N$, only can have $N(\alpha) = N(\beta) = 1$.
 
-When $N(x) = 1$, only can have that $x \in Q_8$. Obviously identity $\phi : Q_8 \rarr Q_8$ is a iso.
+When $N(x) = 1$, only can have that $x \in Q_8$. Obviously identity $\phi : Q_8 \to Q_8$ is a iso.
 
 ## P237 T1
 
@@ -140,7 +140,7 @@ b. For all $xa = 0 \forall a \in L$, we have $(rxr')a = (rx)(r'a) = (rx)a' = r(x
 
 The characteristic of a ring $R$ is the smallest positive integer $n$ such that $1 + 1 + \cdots + 1 = 0$ ($n$ times) in $R$; if no such integer exists the characteristic of $R$ is said to be $0$. For example, $Z/nZ$ is a ring of characteristic $n$ for each positive integer $n$ and $Z$ is a ring of characteristic $0$.
 
-a. Prove that the map $Z \rarr R$ defined by $$k \rarr \left\{ \begin{aligned} &1 + 1 + \cdots + 1 (k \text{ times}) & k > 0 \\ &0 & k = 0 \\ &-1 - 1 - \cdots - 1 (-k \text{ times}) & k < 0 \end{aligned} \right.$$ is a ring homomorphism whose kernel is $nZ$, where $n$ is the characteristic of $R$ (this explains the use of the terminology "characteristic 0" instead of the archaic phrase "characteristic $\infty$" for rings in which no sum of 1's is zero).
+a. Prove that the map $Z \to R$ defined by $$k \to \left\{ \begin{aligned} &1 + 1 + \cdots + 1 (k \text{ times}) & k > 0 \\ &0 & k = 0 \\ &-1 - 1 - \cdots - 1 (-k \text{ times}) & k < 0 \end{aligned} \right.$$ is a ring homomorphism whose kernel is $nZ$, where $n$ is the characteristic of $R$ (this explains the use of the terminology "characteristic 0" instead of the archaic phrase "characteristic $\infty$" for rings in which no sum of 1's is zero).
 
 b. Determine the characteristics of the rings $Q$, $Z[x]$, $Z/nZ[x]$.
 
