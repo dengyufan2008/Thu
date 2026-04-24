@@ -1,0 +1,21 @@
+# Compiled binaries
+task1
+task2
+task3
+task4
+
+# Generated data (regenerate with: make gen_data)
+data/tiny/
+data/small/
+data/medium/
+data/large/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor / OS
+.vscode/
+.DS_Store
+*.swp
+*~
