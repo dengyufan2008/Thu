@@ -5,8 +5,8 @@
 
 using namespace std;
 
-ifstream cin("data.in");
-ofstream cout("data.out");
+ifstream cin("data1.in");
+ofstream cout("data1.out");
 
 const int kMaxN = 4e6 + 1;
 const double kPi = acos(-1.0);
@@ -64,12 +64,13 @@ void FFT() {
   }
 
   if (i < N) {
+    int g = 64 / i;
     int w = 0;
     for (int k = 0; k < i; k++) {
       CD f0 = p[k], f1 = p[k + i] * expTable[w];
       q[k] = f0 + f1;
       q[k + i] = f0 - f1;
-      w++;
+      w += g;
     }
     swap(p, q);
   }
@@ -96,6 +97,7 @@ int main() {
     expTable[i] = CD(cos(kPi * -2 / 128 * i), sin(kPi * -2 / 128 * i));
   }
   FFT();
+  cout << N << '\n';
   for (int i = 0; i < N; i++) {
     int x = X[i].real() * 8192, y = X[i].imag() * 8192;
     if (x < 0) {

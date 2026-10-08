@@ -39,8 +39,8 @@ AI gave a intersting method to reduce memory access. Since we need to do ``X[rev
 
 Item | C program with ``-O0`` | unoptimized RISC-V | Manual RISC-V | AI RISC-V
 :---: |:---: | :---: | :---: | :---:
-Cycles | 867746 | 428305 | 215821 | 274327
-Instructions Retired | 128997 | 31654 | 20131 | 17071
+Cycles | 867746 | 428305 | 215822 | 274327
+Instructions Retired | 128997 | 31654 | 20132 | 17071
 CPI | 6.73 | 13.53 | 10.72 | 16.07
 Speedup | 0.49x | 1x | 1.98x | 1.56x
 

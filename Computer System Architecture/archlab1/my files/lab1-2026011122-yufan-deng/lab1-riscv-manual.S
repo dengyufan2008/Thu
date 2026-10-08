@@ -444,6 +444,7 @@ loop_r4_i_con:
         mv      a2, s2              # a2 = &X[k]
         slli    a3, s5, 3
         add     a3, s2, a3          # a3 = &X[k + i]
+        slli    s4, s4, 1           # s4 = 8g
         j       loop_r2_k_con
 
 loop_r2_k:
@@ -475,7 +476,7 @@ loop_r2_k:
         sw      a0, 4(a3)
 
         addi    s7, s7, 1
-        addi    a1, a1, 8
+        add     a1, a1, s4
         addi    a2, a2, 8
         addi    a3, a3, 8
 loop_r2_k_con:
