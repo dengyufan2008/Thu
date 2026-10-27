@@ -1,6 +1,6 @@
 # Week5 Homework
 
-By Deng Yufan without AI.
+By Deng Yufan with AI on Prob 6.
 
 ## Prob 1
 
@@ -62,13 +62,19 @@ Since the max bag is 3-size, then TW=2.
 
 ## Prob 6
 
-We claim that TW $\le 3$. And when $n \ge 4$, we can pick $1-2-3-4$ and $2-4-1-3$ to form a $K_4$, which TW=3. Now we prove TW $\le 3$.
+Consider a $n^2$ vertex graph, which is a $n \times n$ grid, this can be constructed by $T_1=1-2-\cdots-n-2n-(2n-1)-\cdots$, $T_2=1-(n+1)-\cdots$. We claim TW $=n$.
 
-We first introduce a method to construct a TD. We first pick a perm. of vertex of $G$ called $p_1, \cdots, p_n$. For $G$ we repeatly delete $p_i$, and for $x, y \in N(p_i)$ where $N$ means neighbor, we connect $x$ and $y$. Then add a bag $S_i = N(p_i) \cup \{p_i\}$. After we get $n$ bags, for bag $|S_i|>1$, we find the neighbor that deleted earliest, called $p_j$ and $j>i$, then we condider $S_j$ as father of $S_i$. Since $S_n=\{p_n\}$ we will link at most $n-1$ edges, and every father of $S_i$ we have $j>i$, then there is no ring. So we form a forest and connect arbitary edges to form a tree. We claim this is a TD.
+Consider $b_{i, j}=\{(i, k) \mid k \ge j\} \cup \{(i+1, k) \mid k \le j\}$ for all $1 \le i<n$, $1 \le j \le n$. Then edge $(i, j)-(i, j+1)$ and $(i, j)-(i+1, j)$ is contained by $b_{i, j}$. And we connect all $b_{ij}$ by $b_{1, 1}-b_{1, 2}-\cdots-b_{1, n}-b_{2, 1}-\cdots$. Then vertex $(i, j)$ occurs in $\{(i-1, k) \mid k \ge j\} \cup \{(i, k) \mid k \le j\}$ is a chain in TD. So TW $\le n$.
 
-First we prove every edge in $G$ is used. For a edge $(p_i, p_j)$ and $i<j$, when we delete $p_i$, we have $p_j \in N(p_i)$ so $p_i, p_j \in S_i$. Then we prove every vertex is occured as a connected component. Since $p_i \notin S_j$ when $i<j$ because $p_i$ will be deleted after considering $p_i$, so $S_i$ is the bag containing $p_i$ with lowest depth. For every $S_j$ that $p_i \in S_j$, we have $j<i$. Since we connect all $N(p_j)$ as a complete graph, $S_{f_j}$ or say father of $S_j$ s.t. $S_j \setminus \{p_j\} \subseteq S_{f_j}$ (recall $p_{f_j}$ is a neighbor of $p_j$). So we have $p_i \in S_{f_j}$ since $p_i \ne p_j$. This deduces $p_j$ forms a connected component. Easy to see if when we delete $p_i$, we have $|N(p_i)| \le C$, then TW of $G \le C$. Since size of every bag is no more than $C+1$.
+Then we prove a few lemma. Lemma 1. For any TD of graph $G$, let $T_x$ be $\{b_k \mid x \in b_k\}$, then $\bigcup_{x \in S} T_x$ is connected if $S$ is connected. Proof. For all vertex $x$ and $y$, if there is a edge $(x, y)$, then there is a bag $(x, y) \in b_k$ so $x, y \in b_k$, so $T_x \cap T_y \ne \varnothing$, $T_x \cup T_y$ is connected. Repeatly doing this, we have the claim.
 
-Since $G$ is union of 2 trees, we have $|E| \le 2n-2 < 2n$. Then we can find a vertex $p_1$ that $deg(p_i) \le 3$ (otherwise every vertex has deg larger than 4, #edge=4n/2=2n, contradiction). Then we will delete $p_i$ and add edge to connect all pairs of neighbor, the change of #edge = ${deg \choose 2}-deg \le 0$ when $deg \le 3$. So we still have $|E| < 2n$ after deleting $p_1$. Then we can repeatly choose $p_2, p_3, \cdots, p_n$. Use the method mentioned, we conclude that TW $\le 3$.
+Lemma 2. For connected subtrees $T_1, \cdots, T_k$, if $T_i \cap T_j \ne \varnothing$, then $\bigcap_{i=1}^k T_i \ne \varnothing$. Proof. Induction on $k$, consider $\bigcap_{i=1}^{k-1} T_i = T$, let $a_i \in T_k \cap T_i$, we have there is a $a^1_1$ on path between $a_1$ and $a_2$ that $a_1^1 \in T_1 \cap T_2$, otherwise $T_1 \cap T_2 = \varnothing$. Since $T_k$ is connected, we have $a_1^1 \in T_k$. Repeatly doing this, we can find a $a^{k-2}_\cdot \in T$.
+
+Lemma 3. For $G$ and its TD $T$, if $G_1, G_2, \cdots, G_k$ is subgraph of $G$ and for all $i, j \in [1, k]$, $G_i \cap G_j \ne \varnothing$ or $\exist x \in G_i, y \in G_j$, $(x, y) \in G$, then there is a bag containing at least 1 vertex of every $G_i$. Proof. Let $T_i = \bigcup_{x \in G_i} \{b_k \mid x \in b_k\}$, $T_i$ is connected by lemma 1, then for all $i, j \in [1, k]$, if $G_i \cap G_j \ne \varnothing$, then $T_i \cap T_j \ne \varnothing$. If $\exist x \in G_i, y \in G_j, (x, y) \in G$, then let $(x, y) \in b$, we have $b \in T_i \cap T_j$. So for all $i, j$, $T_i \cap T_j \ne \varnothing$. Thus $\bigcap_{i=1}^k T_i \ne \varnothing$ by lemma 2. Let $b \in \bigcap_{i=1}^k T_i$, then $\forall i, \exist x \in G_i, x \in b$.
+
+Then we prove TW $\ge n$. Let $G_{i, j}=\{(i, k)\} \cup \{(k, j)\}$ for all $1 \le i, j < n$ and $G'=\{(n, k) \mid 1 \le k < n\}$, $G''=\{(k, n) \mid 1 \le k < n\}$. We have $G_i \cap G_j \ne \varnothing$, $G'$ and $G''$ is touched by $(n, n-1)-(n, n)$, $G_{i, j}$ and $G'$ is touched by $(n-1, j)-(n, j)$, $G_{i, j}$ and $G''$ is touched by $(i, n-1)-(i, n)$. So every TD of this grid graph must have a bag containing at least 1 vertex in every $G_{i, j}$, $G'$ and $G''$. We need at least $n-1$ vertex to cover $G_{i, j}$ (otherwise we can pick a row uncovered and a column uncovered), 1 vertex to cover $G'$ and 1 vertex to cover $G''$. So the bag contains at least $n+1$ vertex, TW $\ge n$.
+
+So for the original problem, we have TW $=\Omega(\sqrt n)$.
 
 ## Prob 7
 
