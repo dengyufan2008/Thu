@@ -37,3 +37,7 @@ c. We first calc measure matrix $A_0, A_1, B_0, B_1$, that is a $2 \times 2$ mat
   So $E(A_0, B_0)=\frac{1}{\sqrt 2}$, $E(A_0, B_1)=\frac{1}{\sqrt 2}$, $E(A_1, B_0)=\frac{1}{\sqrt 2}$, $E(A_1, B_1)=-\frac{1}{\sqrt 2}$.
 
 d. We have $S=2\sqrt 2$, which is impossible if we assume predetermined.
+
+## Declaration of AI Use
+
+I used AI to translate part of words, and acquire basic quantum knowledge.
