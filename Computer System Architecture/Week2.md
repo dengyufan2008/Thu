@@ -98,7 +98,7 @@ Instr. | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19
 1 | | | - | - | IF | ID | EX | MEM | WB
 2 | | | | | | IF | ID | - | EX | MEM | WB
 
-17 cycles per iteration, so  CPI = 17/9 = 1.89.
+13 cycles (9 for instruction, 4 for stall) per iteration, so CPI = 13/9 = 1.44.
 
 c.
 
